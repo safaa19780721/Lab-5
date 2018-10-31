@@ -2,11 +2,14 @@ package edu.wmich.cs1120.LA5;
 
 public class Main {
 
+	private static String mood = "Pissed";
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("Hey Michael I love you");
-		System.out.println("Hey Dylan I am pissed");
-		System.out.println("Someone is pissing me off");
+		System.out.println("My mood is: " + getMood());
+		
+	}
+	
+	public static String getMood() {
+		return mood;
 	}
 
 }
