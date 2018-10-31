@@ -7,4 +7,8 @@ public class TestDylansSexuality {
 	public String getSexuality() {
 		return sexuality;
 	}
+	
+	public String dylansSoulmate() {
+		return "Will";
+	}
 }
