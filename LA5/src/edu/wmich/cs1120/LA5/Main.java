@@ -2,14 +2,12 @@ package edu.wmich.cs1120.LA5;
 
 public class Main {
 
-	private static String mood = "Pissed";
 	public static void main(String[] args) {
-		System.out.println("My mood is: " + getMood());
-		
-	}
-	
-	public static String getMood() {
-		return mood;
+		System.out.println("Hey Michael I love you");
+		System.out.println("Hey Dylan I am pissed");
+		System.out.println("Someone is pissing me off");
+		System.out.println("He is doing this literally the hardest way of all time");
+		System.out.println("True");
 	}
 
 }
