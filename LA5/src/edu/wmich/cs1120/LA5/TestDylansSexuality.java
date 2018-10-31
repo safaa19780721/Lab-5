@@ -8,4 +8,8 @@ public class TestDylansSexuality {
 	public String getSexuality() {
 		return sexuality;
 	}
+	
+	public void iHateYou() {
+		
+	}
 }
