@@ -1,23 +1,53 @@
 package edu.wmich.cs1120.LA5;
 import java.util.Scanner;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class ContactInformationFormatter implements IContactInformationFormatter {
 
 	private Scanner in;
+	NameFormatException nameException = new NameFormatException("Name is wrong format");
+	PhoneNumberFormatException phoneException = new PhoneNumberFormatException("Phone number is wrong format");
+	EmailAddressFormatException emailException = new EmailAddressFormatException("Email address is wrong format");
+	FormatExceptionHandler exceptionHandler = new FormatExceptionHandler();
 	private String emailLine, firstLetter, phoneDigits = "";
 	private ArrayList<String> names, firstName, lastName, phoneNumber, emails;
 	
 	public void readContactInformation(String[] filePaths) {
 		for(int i = 0; i < filePaths.length;i++) {
-			in = new Scanner(filePaths[i]);
-			while(in.hasNext()) {
-				firstName.add(in.next());
-				lastName.add(in.next());
-				phoneNumber.add(in.nextLine());
-				emails.add(in.nextLine());
+			try {
+				File inFile = new File(filePaths[i]);
+				in = new Scanner(inFile);
+				while(in.hasNext()) {
+					firstName.add(in.next());
+					lastName.add(in.next());
+					phoneNumber.add(in.nextLine());
+					emails.add(in.nextLine());
+					if(!nameException.isNameFormatException(firstName.get(i) + lastName.get(i))) {
+						throw new NameFormatException("");
+					}
+					if(!phoneException.isPhoneNumberFormatException(phoneNumber.get(i))) {
+						throw new PhoneNumberFormatException("");
+					}
+					if(!emailException.isEmailAddressFormatException(emails.get(i))) {
+						throw new EmailAddressFormatException("");
+					}
+				}
 			}
+			catch(FileNotFoundException e) {
+				exceptionHandler.handleFileNotFoundException(e);
+			}
+			catch(NameFormatException e) {
+				exceptionHandler.handleNameFormatException(e);
+			}
+			catch(PhoneNumberFormatException e) {
+				exceptionHandler.handlePhoneNumberFormatException(e);
+			}
+			catch(EmailAddressFormatException e) {
+				exceptionHandler.handleEmailFormatException(e);
+			}
+			
 		}
 		
 	}
@@ -53,16 +83,17 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 		}
 	}
 
-	@Override
+	public void formatName(String name) throws NameFormatException {
+		
+	}
+	
 	public void formatEmail(String email) throws EmailAddressFormatException {
-		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void formatPhoneNumber(String phoneNumber) throws PhoneNumberFormatException {
-		// TODO Auto-generated method stub
 
 	}
+	
 
 }

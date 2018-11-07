@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 public class FormatExceptionHandler implements IFormatExceptionHandler {
 
 	public void handleFileNotFoundException(FileNotFoundException e) {
-		
+		System.out.println(e);
 	}
 	public void handlePhoneNumberFormatException(PhoneNumberFormatException e) {
 		
