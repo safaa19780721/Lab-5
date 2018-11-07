@@ -8,7 +8,7 @@ public class FormatExceptionHandler implements IFormatExceptionHandler {
 		System.out.println(e);
 	}
 	public void handlePhoneNumberFormatException(PhoneNumberFormatException e) {
-		
+		System.out.println(e);
 	}
 	public void handleEmailFormatException(EmailAddressFormatException e) {
 		

@@ -7,7 +7,7 @@ public class PhoneNumberFormatException extends Exception{
 	}
 	
 	public static boolean isPhoneNumberFormatException(String phoneNumber) {
-		return true;
+		return false;
 	}
 
 }
