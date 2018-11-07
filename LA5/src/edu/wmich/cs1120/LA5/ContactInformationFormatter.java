@@ -69,15 +69,10 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 			
 			//Formatting Phone Number
 			for(int x = 0; x < phoneNumber.get(i).length(); x++) {
-				try {
-					Integer.parseInt(phoneNumber.get(i));
-					phoneDigits = phoneDigits + phoneNumber.get(i).charAt(x); 
-				} catch(NumberFormatException E) {
-				} catch(NullPointerException E) {
-				}
+				Integer.parseInt(phoneNumber.get(i));
+				phoneDigits = phoneDigits + phoneNumber.get(i).charAt(x); 
+				phoneNumber.set(i,("("+ phoneDigits.substring(0,3)) + ")" + phoneDigits.substring(3,7) + "-" + phoneDigits.substring(7));
 			}
-			phoneNumber.set(i,("("+ phoneDigits.substring(0,3)) + ")" + phoneDigits.substring(3,7) + "-" + phoneDigits.substring(7));
-			
 			//Formatting Email
 			
 		}
